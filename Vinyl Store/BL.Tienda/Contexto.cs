@@ -8,9 +8,11 @@ using System.Threading.Tasks;
 
 namespace BL.Tienda
 {
-   public class Contexto : DbContext
+   public class contexto : DbContext
     {
-        public Contexto() : base("Musica")
+        internal static object Tipos;
+
+        public contexto() : base("Musica")
         {
 
         }
@@ -18,7 +20,14 @@ namespace BL.Tienda
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
             modelBuilder.Conventions.Remove<PluralizingTableNameConvention>();
+            
         }
         public DbSet<Modelo> Modelos { get; set; }
+        public DbSet<Tipo> tipos { get; set; }
+
+
+
     }
+
+    
 }
