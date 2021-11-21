@@ -11,18 +11,18 @@ using System.Windows.Forms;
 
 namespace Win.Tienda
 {
-    public partial class FormReporte1 : Form
+    public partial class FormReporteModelos : Form
     {
-        public FormReporte1()
+        public FormReporteModelos()
         {
             InitializeComponent();
 
-            var _clienteBL = new ClientesBL();
-            var bindingSource = new BindingSource();
-            bindingSource.DataSource = _clienteBL.ObtenerClientes();
+            var _modeloBL = new ModeloBL();
+            var bindingSourge = new BindingSource();
+            bindingSourge.DataSource = _modeloBL.ObtenerModelos();
 
-            var reporte = new clienteReporte();
-            reporte.SetDataSource(bindingSource);
+            var reporte = new ReporteModelos();
+            reporte.SetDataSource(bindingSourge);
 
             crystalReportViewer1.ReportSource = reporte;
             crystalReportViewer1.RefreshReport();
